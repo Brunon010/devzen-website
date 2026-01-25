@@ -3,24 +3,356 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>devzen.app - Développement d'applications</title>
+    <title>DEVZEN - Applications pour le Bien-Être</title>
     <style>
-        body { font-family: Arial, sans-serif; max-width: 800px; margin: 40px auto; padding: 20px; }
-        nav a { margin-right: 15px; }
+        /* Styles généraux */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+            min-height: 100vh;
+			/* NOUVELLES LIGNES À AJOUTER APRÈS */
+            background-image: url('bien-etre.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-blend-mode: overlay;
+        }
+        
+        /* En-tête */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo {
+            height: 50px;
+            width: auto;
+            border-radius: 8px;
+        }
+        
+        .site-title {
+            font-size: 28px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .site-subtitle {
+            font-size: 14px;
+            color: #7f8c8d;
+            margin-top: -5px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 500;
+            font-size: 16px;
+            transition: color 0.3s;
+            padding: 5px 0;
+        }
+        
+        nav a:hover {
+            color: #3498db;
+            border-bottom: 2px solid #3498db;
+        }
+        
+        /* Contenu principal */
+        .main-content {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        
+        .page-title {
+            text-align: center;
+            font-size: 36px;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            padding-top: 20px;
+        }
+        
+        .intro-text {
+            background-color: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            font-size: 18px;
+            line-height: 1.8;
+            color: #444;
+            text-align: center;
+        }
+        
+        /* Applications */
+        .apps-section {
+            margin-top: 60px;
+        }
+        
+        .apps-title {
+            font-size: 28px;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .app-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s;
+        }
+        
+        .app-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .app-name {
+            font-size: 24px;
+            color: #3498db;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .app-description {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.7;
+        }
+        
+        .app-description h4 {
+            color: #2c3e50;
+            margin: 25px 0 15px 0;
+            font-size: 18px;
+        }
+        
+        .app-description ul {
+            margin: 15px 0 15px 25px;
+            color: #555;
+        }
+        
+        .app-description li {
+            margin-bottom: 8px;
+        }
+        
+        .app-description strong {
+            color: #2c3e50;
+        }
+        
+        .app-description em {
+            color: #7f8c8d;
+            font-style: italic;
+        }
+        
+        .app-links {
+            margin-top: 30px;
+            text-align: center;
+        }
+        
+        .app-link {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            padding: 10px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s;
+            margin: 5px 10px;
+        }
+        
+        .app-link:hover {
+            background-color: #2980b9;
+        }
+        
+        .app-link.secondary {
+            background-color: #27ae60;
+        }
+        
+        .app-link.secondary:hover {
+            background-color: #219653;
+        }
+        
+        /* Pied de page */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+        }
+        
+        .footer-links {
+            margin-top: 20px;
+        }
+        
+        .footer-links a {
+            color: #ecf0f1;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #bdc3c7;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            nav ul {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .page-title {
+                font-size: 28px;
+            }
+            
+            .intro-text {
+                padding: 25px;
+                font-size: 16px;
+            }
+            
+            .app-card {
+                padding: 20px;
+            }
+            
+            .app-links {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .app-link {
+                margin: 5px 0;
+                width: 100%;
+                max-width: 250px;
+            }
+        }
     </style>
 </head>
 <body>
-    <nav>
-        <a href="/">Accueil</a>
-        <a href="/contact.html">Contact</a>
-        <a href="/privacy-policy.html">Confidentialité</a>
-    </nav>
-    
-    <h1>devzen.app</h1>
-    <p>Applications mobiles développées par Bruno MARTELLI, micro-entrepreneur.</p>
-    
-    <h2>Japanese Walk</h2>
-    <p>Application Android pour apprendre le japonais...</p>
-    <p><a href="/japanesewalk/privacy-policy.html">Politique de confidentialité de Japanese Walk</a></p>
+    <!-- En-tête -->
+    <header>
+        <div class="header-container">
+            <div class="logo-section">
+                <!-- Remplacez "logo.png" par votre fichier logo -->
+                <img src="logo.png" alt="Logo DEVZEN" class="logo">
+                <div>
+                    <span href="/" class="site-title">DEVZEN</span>
+                    <div class="site-subtitle">VOTRE BIEN-ÊTRE</div>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/index.html">Accueil</a></li>
+                    <li><a href="/contact.html">Contact</a></li>
+                    <li><a href="/privacy-policy.html">Confidentialité</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contenu principal -->
+    <main class="main-content">
+        <h1 class="page-title">Applications Innovantes pour le Bien-Être</h1>
+        
+        <div class="intro-text">
+            Découvrez des solutions numériques qui améliorent votre santé mentale et physique. 
+            Nos applications sont conçues pour vous aider à atteindre vos objectifs de bien-être 
+            et à vivre une vie équilibrée.
+        </div>
+        
+        <!-- Section Applications -->
+        <div class="apps-section">
+            <h2 class="apps-title">Nos Applications</h2>
+            
+            <!-- Japanese Walk -->
+            <div class="app-card">
+                <h3 class="app-name">Japanese Walk</h3>
+                <div class="app-description">
+                    <p>Nous nous spécialisons dans le bien être et vous proposerons des applications qui, nous l'espérons, vous satisferont pleinement.</p>
+                    
+                    <p>Notre première application est une application de fitness basée sur de vraies recherches qui ont permis la naissance de la fameuse marche japonaise. La technique de la marche japonaise ou IWT (Interval Walking Training) a été introduite pour la première fois en 2007 par Hiroshi Nose et Shizue Masuki, professeurs à l'université Shinshü au Japon. Au cours de leurs recherches, ils ont établi le rythme optimal.</p>
+                    
+                    <p>C'est une méthode qui alterne 3 minutes de marche rapide qui représente un intervalle (où parler devient difficile) et 3 minutes de marche lente qui représente l'autre intervalle (récupération, conversation facile), sur un cycle de 5 minutes, soit un total de 30 minutes, à répéter au moins 4 fois par semaine. Elle est plus efficace pour la santé cardiovasculaire, et la perte de poids que la marche continue de 10 000 pas, en se concentrant sur l'intensité plutôt que la quantité.</p>
+                    
+                    <h4>Quels en sont les bienfaits ? :</h4>
+                    <ul>
+                        <li><strong>Amélioration cardiovasculaire</strong> : meilleure performance que la marche traditionnelle, avec des effets positifs sur la tension artérielle.</li>
+                        <li><strong>Brûle plus de calories</strong> : l'intensité variable stimule davantage le métabolisme et sollicite le cœur et les poumons.</li>
+                        <li><strong>Moins de temps</strong> : une séance de 30 minutes est très efficace.</li>
+                        <li><strong>Accessible</strong> : un smartphone suffit.</li>
+                    </ul>
+                    
+                    <p>Des conseils plus détaillés vous sont donnés dans l'aide de l'application (onglets Marche et Respiration).</p>
+                    
+                    <p>Cette application vous permet de pratiquer efficacement cette technique de marche avec différents paramétrages. Elle permet également de sauvegarder automatiquement, en local, vos sessions de marche que vous pouvez consulter à tout moment. En dehors d'une vérification des droits à la connexion (ou au lancement de l'application) qui nécessite l'accès au réseau, toutes vos sessions de marches peuvent se dérouler hors réseau car rien n'est stocké en dehors de votre smartphone, une fois votre inscription validée.</p>
+                </div>
+                <div class="app-links">
+                    <a href="/japanesewalk/privacy-policy.html" class="app-link">Politique de confidentialité</a>
+                    <!-- Ajoutez ce lien quand vous aurez l'URL du Play Store -->
+                    <!-- <a href="https://play.google.com/store/apps/details?id=votre.package" class="app-link secondary">Télécharger sur Play Store</a> -->
+                </div>
+            </div>
+            
+            <!-- Vous pourrez ajouter d'autres applications ici plus tard -->
+        </div>
+    </main>
+
+    <!-- Pied de page -->
+    <footer>
+        <div class="footer-links">
+            <a href="/index.html">Accueil</a>
+            <a href="/contact.html">Contact</a>
+            <a href="/privacy-policy.html">Confidentialité</a>
+        </div>
+        <div class="copyright">
+            © 2025 DEVZEN - Tous droits réservés.
+        </div>
+    </footer>
 </body>
 </html>
